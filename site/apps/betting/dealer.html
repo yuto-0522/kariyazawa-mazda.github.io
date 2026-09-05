@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>賭け場 - ディーラー管理</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>賭け場 - ディーラー管理</h1>
+    <p class="subtitle">ラウンドの作成・締切・決済・リセットを行う管理画面</p>
+  </header>
+
+  <main>
+    <section id="dealer-key-section" class="card">
+      <h2>ディーラー鍵の入力</h2>
+      <form id="dealer-key-form">
+        <label>
+          X-Dealer-Key
+          <input type="password" id="dealer-key-input" required autocomplete="off">
+        </label>
+        <button type="submit">保存して開始</button>
+      </form>
+      <p id="dealer-key-message" class="status error"></p>
+    </section>
+
+    <div id="dealer-main" hidden>
+      <section class="card" id="current-round-section">
+        <h2>現在のラウンド</h2>
+        <p id="round-status"></p>
+        <div id="round-info" hidden>
+          <p>枠A: <strong id="round-slot-a">-</strong> ／ 枠B: <strong id="round-slot-b">-</strong></p>
+          <p>参加者数: <strong id="round-bet-count">-</strong> ／ 合計stake: <strong id="round-total-stake">-</strong>pt</p>
+        </div>
+      </section>
+
+      <section class="card" id="create-round-section">
+        <h2>新規ラウンド作成</h2>
+        <form id="create-round-form">
+          <label>
+            枠Aラベル
+            <input type="text" id="create-slot-a-input" placeholder="例: 100m走 田中さん">
+          </label>
+          <label>
+            枠Bラベル
+            <input type="text" id="create-slot-b-input" placeholder="例: 100m走 鈴木さん">
+          </label>
+          <button type="submit">ラウンドを作成</button>
+        </form>
+        <p id="create-round-message" class="status"></p>
+      </section>
+
+      <section class="card" id="edit-round-section" hidden>
+        <h2>ラウンド編集</h2>
+        <form id="edit-round-form">
+          <label>
+            枠Aラベル
+            <input type="text" id="edit-slot-a-input">
+          </label>
+          <label>
+            枠Bラベル
+            <input type="text" id="edit-slot-b-input">
+          </label>
+          <button type="submit">更新</button>
+        </form>
+        <p id="edit-round-message" class="status"></p>
+        <button type="button" id="delete-round-button" class="danger">このラウンドを削除</button>
+      </section>
+
+      <section class="card" id="settle-section" hidden>
+        <h2>決済（実測値の入力）</h2>
+        <form id="settle-form">
+          <label>
+            枠A実測値
+            <input type="text" id="settle-slot-a-input" placeholder="例: 12.34" required>
+          </label>
+          <label>
+            枠B実測値
+            <input type="text" id="settle-slot-b-input" placeholder="例: 13.02" required>
+          </label>
+          <button type="submit">計算実行</button>
+        </form>
+        <p id="settle-message" class="status"></p>
+        <div id="settle-result"></div>
+      </section>
+
+      <section class="card" id="participants-section">
+        <h2>参加者ポイント一覧</h2>
+        <ul id="participants-list"><li>読み込み中...</li></ul>
+      </section>
+
+      <section class="card" id="reset-section">
+        <h2>シーズンリセット</h2>
+        <button type="button" id="reset-button" class="danger">全ポイントをリセット</button>
+      </section>
+
+      <section class="card" id="history-section">
+        <h2>過去のラウンド</h2>
+        <ul id="history-list"><li>読み込み中...</li></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="dealer.js"></script>
+</body>
+</html>

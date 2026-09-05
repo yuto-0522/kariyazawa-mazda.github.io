@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>賭け場</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>賭け場</h1>
+    <p class="subtitle">ディーラーが出すお題のタイムを予想してポイントを賭けよう</p>
+  </header>
+
+  <main>
+    <section id="not-registered" class="card" hidden>
+      <p>名前が登録されていません。<a href="../../index.html">トップページ</a>で名前を登録してください。</p>
+    </section>
+
+    <div id="main-content" hidden>
+      <section class="card" id="user-info-section">
+        <p>
+          ようこそ、<strong id="user-name">-</strong>さん
+          （保有ポイント: <strong id="user-points">-</strong>pt）
+        </p>
+      </section>
+
+      <section class="card" id="round-section">
+        <h2>現在のラウンド</h2>
+        <p id="round-status"></p>
+
+        <form id="round-form" hidden>
+          <div class="slot-labels">
+            <span>枠A: <strong id="slot-a-label">-</strong></span>
+            <span>枠B: <strong id="slot-b-label">-</strong></span>
+          </div>
+
+          <label>
+            賭けポイント（stake）
+            <input type="number" id="stake-input" min="1" step="1" required>
+          </label>
+          <label>
+            枠Aの予想（guessA）
+            <input type="text" id="guess-a-input" required>
+          </label>
+          <label>
+            枠Bの予想（guessB）
+            <input type="text" id="guess-b-input" required>
+          </label>
+
+          <button type="submit" id="bet-submit">予想を送信</button>
+          <p id="bet-message" class="status"></p>
+        </form>
+      </section>
+
+      <section class="card" id="ranking-section">
+        <h2>ランキング</h2>
+        <ol id="ranking-list"><li>読み込み中...</li></ol>
+      </section>
+
+      <section class="card" id="history-section">
+        <h2>過去のラウンド</h2>
+        <ul id="history-list"><li>読み込み中...</li></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -3,26 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>社内賭け場サイト（雛形）</title>
-<link rel="stylesheet" href="css/style.css">
+<title>社内レクリエーション ハブ</title>
+<link rel="stylesheet" href="css/hub.css">
 </head>
 <body>
   <header>
-    <h1>社内賭け場サイト</h1>
-    <p class="subtitle">社内レクリエーション用（雛形）</p>
+    <h1>社内レクリエーション</h1>
+    <p class="subtitle">遊びたいサービスを選んでください</p>
   </header>
 
   <main>
-    <section id="events">
-      <h2>開催中のイベント</h2>
-      <ul id="event-list"><li>読み込み中...</li></ul>
+    <section class="card" id="user-section">
+      <h2>あなたの名前</h2>
+      <div class="user-form">
+        <input type="text" id="user-name-input" placeholder="名前を入力" maxlength="40">
+        <button id="user-name-save">この名前で始める</button>
+      </div>
+      <p id="user-name-status" class="status"></p>
+    </section>
+
+    <section id="services-section">
+      <h2>サービス一覧</h2>
+      <div id="service-list" class="service-list"></div>
     </section>
   </main>
 
-  <footer>
-    <p>API: <code id="api-base"></code></p>
-  </footer>
-
-  <script src="js/main.js"></script>
+  <script src="js/hub.js"></script>
 </body>
 </html>

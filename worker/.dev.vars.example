@@ -1,0 +1,4 @@
+# ローカル開発用の環境変数のサンプル。
+# `cp .dev.vars.example .dev.vars` してから値を設定する（.dev.varsはgit管理対象外）。
+
+DEALER_KEY=change-me-local-dealer-key
