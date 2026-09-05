@@ -1,0 +1,8 @@
+name = "bet-site-worker"
+main = "src/index.ts"
+compatibility_date = "2024-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bet_site_db"
+database_id = "00000000-0000-0000-0000-000000000000" # TODO: `wrangler d1 create bet_site_db` で発行したIDに差し替える
